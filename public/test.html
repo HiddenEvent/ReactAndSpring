@@ -48,6 +48,27 @@
         return n + 10;
       });
       console.log(b5);
+
+      console.log('6.================= 데이터 수정');
+      const a6 = { id: 1, name: '홍길동' };
+      const b6 = { ...a6, name: '임꺽정' }; // name을 찾아 변경시킨다.
+      console.log(b6);
+
+      // 실제 배열에서 상태값 업데이트
+      const users = [
+        { id: 1, name: '구태모', phone: '2222' },
+        { id: 2, name: '이대엽', phone: '3333' },
+        { id: 3, name: '오승훈', phone: '4444' },
+      ];
+      const updateUserDto = {
+        id: 3,
+        name: '홍길동',
+      };
+
+      const newUsers = users.map((u) =>
+        u.id === updateUserDto.id ? { ...u, ...updateUserDto } : u,
+      ); // {...users}
+      console.log('newUsers', newUsers);
     </script>
   </body>
 </html>

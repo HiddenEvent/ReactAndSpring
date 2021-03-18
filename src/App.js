@@ -10,14 +10,15 @@ import './App.css';
 // 3) if사용 불가능 X => 삼항연산자 사용가능
 // 4) css 디자인 - 외부파일에 정의하고 사용하자
 
-let a = 10; // 변수
-const b = 20; //상수
-
 function App() {
+  let list = [1, 2, 3];
   return (
     <div>
-      <div>하이 {a === 10 ? '10입니다' : '10이 아닙니다'}</div>
-      <h1 className="box-style">헤더 태그다 {b}</h1>
+      <div>
+        {list.map((n) => (
+          <h1>{n}</h1>
+        ))}
+      </div>
     </div>
   );
 }
