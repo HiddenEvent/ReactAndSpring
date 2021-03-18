@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // concat, filter, map, slice, 스프레드(전개) 연산자
+      const a = [1, 2, 3];
+      const b = [...a];
+      console.log('1.======================  스프레드연산자');
+      b.push(4);
+      console.log(`a의 값은 : ${a}`);
+      console.log(`b의 값은 : ${b}`);
+
+      console.log('2.======================  추가하기');
+      const a2 = [1, 2, 3];
+      const b2 = a2.concat(4);
+      console.log(`a2의 값은 ${a2}`);
+      console.log(`b2의 값은 ${b2}`);
+      const c2 = [50, ...a2, 4]; // concat으로 추가하는 것보다 편하네?
+      console.log(`c2의 값은: ${c2}`);
+
+      console.log('4.================== 걸러내기');
+      const a3 = [1, 2, 3];
+      const b3 = a3.filter((n) => {
+        return n != 1;
+      }); // boolean을 return 받는다. -> true만 걸러낸다.
+      console.log(`b3의 값은 : ${b3}`);
+
+      console.log('4.===================== 잘라내기');
+      const a4 = [1, 2, 3];
+      const b4 = a4.slice(0, 2); // 0~1 번째 배열만 저장된다.
+      console.log(`b4의 값은 : ${b4}`);
+      const c4 = [...a4.slice(0, 2), 4, ...a4.slice(2, 3)]; // ...을 쓰는 이유는 흩뿌리기 위해, ...을 쓰지 않으면 배열이 들어가게 된다.
+      console.log(`c4의 값은 : ${c4}`);
+
+      console.log('5.================= 반복문');
+      const a5 = [1, 2, 3];
+
+      //   a5.forEach((n) => { // 리턴하지 못함..
+      //     console.log(n);
+      //   });
+      const b5 = a5.map((n) => {
+        return n + 10;
+      });
+      console.log(b5);
+    </script>
+  </body>
+</html>
