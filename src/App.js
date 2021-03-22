@@ -13,20 +13,33 @@ import Sub from './Sub';
 // 4) css 디자인 - 외부파일에 정의하고 사용하자
 
 function App() {
-  // let number = 1; // 상태값 아님
-  const [number, setNumber] = useState(2); // React안에 hooks 라이브러리 상태값이 됨. (set + 카멜케이스로 쓴다)
-  const add = () => {
-    setNumber(number + 1); // 리엑트한테 number 값 변경할께 라고 요청
-    console.log('add', number);
+  console.log('App 실행됨');
+
+  const [num, setNum] = useState(5);
+  // 다운로드 받음
+  let sample = [
+    { id: 1, name: '홍길동' },
+    { id: 2, name: '임꺽정' },
+    { id: 3, name: '장보고' },
+    { id: 4, name: '코스' },
+  ];
+
+  const [users, setUsers] = useState(sample); // 래퍼런스가 변경되야 동작된다
+  const download = () => {
+    // setUsers([...sample]);  // 깊은 복사를 하면 래퍼런스가 변경되어 데이터가 같이도 무조건 다시그려지게 된다.. 사용X
+    console.log(sample);
+    setUsers([...sample, { id: num, name: '조자룡' }]);
+    setNum(num + 1);
   };
-  // 랜더링 시점 = 상태값 변경
+
   return (
     <div>
-      <div>
-        <h1>숫자 : {number}</h1>
-        <button onClick={add}>더하기</button>
-        <Sub />
-      </div>
+      <button onClick={download}>다운로드</button>
+      {users.map((u) => (
+        <h1>
+          {u.id},{u.name}
+        </h1>
+      ))}
     </div>
   );
 }
