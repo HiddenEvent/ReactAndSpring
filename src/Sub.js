@@ -1,11 +1,10 @@
 import React from 'react';
 
-const Sub = () => {
-  return (
-    <div>
-      <h1>Sub입니다.</h1>
-    </div>
-  );
-};
+let num = 10;
 
+function Sub() {
+  return <div></div>;
+}
+
+export { num }; //여러개의 데이터를 넘길때 대괄호 사용
 export default Sub;
