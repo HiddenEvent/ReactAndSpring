@@ -7,6 +7,7 @@ const HomePage = () => {
   // http 요청(fetch, axios(다운로드 받아야함))
   const [boards, setBoards] = useState([]);
   const [number, setNumber] = useState(0);
+  const [user, setUser] = useState({});
 
   useEffect(() => {
     // 값 받아오기
@@ -17,6 +18,7 @@ const HomePage = () => {
     ];
 
     setBoards([...datas]);
+    setUser({ id: 1, username: 'cos' });
   }, []);
 
   return (
@@ -27,6 +29,8 @@ const HomePage = () => {
         setBoards={setBoards}
         number={number}
         setNumber={setNumber}
+        user={user}
+        setUser={setUser}
       />
       <Footer />
     </div>
