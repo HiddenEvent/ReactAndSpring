@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 // 하나의 컴포넌트를 생성
@@ -14,8 +15,12 @@ const Header = () => {
       <div>
         <div>
           <ul>
-            <li>메뉴 1</li>
-            <li>메뉴 2</li>
+            <li>
+              <Link to="/">홈</Link>
+            </li>
+            <li>
+              <Link to="/login/10">로그인</Link>
+            </li>
           </ul>
         </div>
       </div>

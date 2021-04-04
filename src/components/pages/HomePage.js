@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Footer from '../Footer';
-import Header from '../Header';
+
 import Home from '../home/Home';
 
 const HomePage = () => {
@@ -23,7 +22,6 @@ const HomePage = () => {
 
   return (
     <div>
-      <Header />
       <Home
         boards={boards}
         setBoards={setBoards}
@@ -32,7 +30,6 @@ const HomePage = () => {
         user={user}
         setUser={setUser}
       />
-      <Footer />
     </div>
   );
 };
