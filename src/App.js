@@ -1,16 +1,15 @@
-import Header from './components/Header';
-import Footer from './components/Footer';
 import { Route } from 'react-router';
-import HomePage from './components/pages/HomePage';
-import LoginPage from './components/pages/LoginPage';
+import Navigation from './components/Navigation';
+import ListPage from './page/ListPage';
+import WritePage from './page/WritePage';
 
+// 글쓰기, 글삭제, 글목록보기
 function App() {
   return (
     <div>
-      <Header />
-      <Route path="/" exact={true} component={HomePage} />
-      <Route path="/login/:id" exact={true} component={LoginPage} />
-      <Footer />
+      <Navigation />
+      <Route path="/" exact={true} component={ListPage} />
+      <Route path="/Write" exact={true} component={WritePage} />
     </div>
   );
 }
