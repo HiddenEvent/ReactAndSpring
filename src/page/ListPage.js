@@ -12,8 +12,9 @@ const StyledItemBoxDiv = styled.div`
 `;
 
 const ListPage = () => {
+  const [no, setNo] = useState(4);
   const [post, setPost] = useState({
-    id: '',
+    id: no,
     title: '',
     content: '',
   });
@@ -25,21 +26,22 @@ const ListPage = () => {
     { id: 4, title: '제목4', content: '내용4' },
   ]);
 
-  const handleWrite = () => {
+  const handleWrite = (e) => {
+    e.preventDefault(); // form태그가 하려는 액션을 중지 시켜야한다.
+    setNo(no + 1);
+    setPost({
+      ...post,
+      id: no,
+    });
     setPosts([...posts, post]);
   };
 
   const handleForm = (e) => {
-    console.log(e.target.name);
-    console.log(e.target.value);
-
-    // ⚡ computed property 네임 (변수의 값을 속성변수로 사용 할 수 있음)
     setPost({
       ...post,
+      // ⚡ computed property 네임 (변수의 값을 속성변수로 사용 할 수 있음)
       [e.target.name]: e.target.value,
     });
-    console.log(post.title);
-    console.log(post.content);
   };
 
   return (
