@@ -26,8 +26,7 @@ const ListPage = () => {
   ]);
 
   const handleWrite = () => {
-    //ListPage의 setPosts에 무엇을 담아야 함?
-    let post = { id: 6, title: '인풋값' };
+    setPosts([...posts, post]);
   };
 
   const handleForm = (e) => {
@@ -35,7 +34,10 @@ const ListPage = () => {
     console.log(e.target.value);
 
     // ⚡ computed property 네임 (변수의 값을 속성변수로 사용 할 수 있음)
-    setPost({ [e.target.name]: e.target.value });
+    setPost({
+      ...post,
+      [e.target.name]: e.target.value,
+    });
     console.log(post.title);
     console.log(post.content);
   };
@@ -66,7 +68,7 @@ const ListPage = () => {
       {posts.map((post) => (
         <StyledItemBoxDiv>
           <div>
-            번호: {post.id} 제목:{post.title}
+            번호: {post.id} / 제목:{post.title} / 내용:{post.content}
           </div>
           <button>삭제</button>
         </StyledItemBoxDiv>
