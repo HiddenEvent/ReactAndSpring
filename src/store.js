@@ -4,7 +4,7 @@ export const decrease = () => ({ type: 'DECREMENT' });
 
 // 상태
 const initstate = {
-  number: 0,
+  number: 1,
 };
 
 // 액션의 결과를 걸러내는 친구
